@@ -10,17 +10,17 @@ class Redirect {
 }
 
 const REDIRECT_TREE = {
-    '/demo': new Redirect('https://example.com', 302, false),
-    '/demoinfo': new Redirect('https://www.iana.org/help/example-domains', 302, false),
-    '/github': new Redirect('https://github.com', 302, true),
-    '/sub': {
-        '/google': new Redirect('https://about.google', 302, false),
+    "/demo": new Redirect("https://example.com", 302, false),
+    "/demoinfo": new Redirect("https://www.iana.org/help/example-domains", 302, false),
+    "/github": new Redirect("https://github.com", 302, true),
+    "/sub": {
+        "/google": new Redirect("https://about.google", 302, false),
     },
 }
 
 function noRouterError(url) {
-    console.error('Invalid router path: ' + url.pathname)
-    return new Response('Request URI invalid', { status: 400 })
+    console.error("Invalid router path: " + url.pathname)
+    return new Response("Request URI invalid", { status: 400 })
 }
 
 /*
@@ -29,7 +29,7 @@ function noRouterError(url) {
     Hash table ⊂⁠(⁠(⁠・⁠▽⁠・⁠)⁠)⁠⊃
 */
 function scanRedirectTreeLayer(node, path) {
-    let routerEnd = path.indexOf('/', 1)
+    let routerEnd = path.indexOf("/", 1)
     let router = path.slice(0, routerEnd !== -1 ? routerEnd : undefined)
 
     return node[router] !== undefined ? router : null
