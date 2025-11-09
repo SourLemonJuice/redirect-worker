@@ -10,12 +10,8 @@ class Redirect {
 }
 
 const REDIRECT_TREE = {
-    "/demo": new Redirect("https://example.com", 302, false),
-    "/demoinfo": new Redirect("https://www.iana.org/help/example-domains", 302, false),
-    "/github": new Redirect("https://github.com", 302, true),
-    "/sub": {
-        "/google": new Redirect("https://about.google", 302, false),
-    },
+    "/": new Redirect("https://sourlemonjuice.net"),
+    "/github": new Redirect("https://github.com/SourLemonJuice"),
 }
 
 function noRouterError(url) {
